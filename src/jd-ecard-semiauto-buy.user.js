@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.1
+// @version 0.0.2
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -12,7 +12,7 @@
 
 ## 安装
 
-安装成功后修改 PW 和 MOBILE 字段，分别为 E 卡的密码和手机号
+安装成功后修改 PAY_PW 字段，为京东支付密码，用于将京东卡绑定到本账户
 
 ## 使用
 
@@ -24,8 +24,7 @@
 
 /* global unsafeWindow */
 
-const PW = '';
-const MOBILE = '';
+const PAY_PW = '';
 
 (w => {
 
@@ -46,9 +45,6 @@ const MOBILE = '';
 
         // buy second step
         } else if (hostname === 'giftcard.jd.com' && pathname === '/giftcardpurchase/index') {
-            document.querySelector('#pwd-first').value = PW;
-            document.querySelector('#pwd-second').value = PW;
-            document.querySelector('#pwd-phone').value = MOBILE;
             w.save_PayAndShip();
             document.querySelector('.checkout-submit').click();
 
@@ -104,7 +100,7 @@ const MOBILE = '';
 
         // detail: bind ecard
         } else if (location.hostname === 'details.jd.com' && location.pathname === '/normal/item.action') {
-            document.querySelector('#coupwd').value = PW;
+            document.querySelector('#coupwd').value = PAY_PW;
             document.querySelector('.view-btn').click();
 
             setTimeout(() => {
