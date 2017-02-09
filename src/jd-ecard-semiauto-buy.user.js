@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.2
+// @version 0.0.3
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -36,12 +36,14 @@ const PAY_PW = '';
         if (hostname === 'o.jd.com' && pathname === '/index') {
             let buy = w.prompt();
             if (buy) {
-                document.querySelector('#customVal').value = buy;
-                document.querySelector('.e-card-custom .j-buy').click();
                 setTimeout(() => {
-                    document.querySelector('.e-buy-car .j-toPay').click();
-                }, 1000);
+                    window.location = 'http://giftcard.jd.com/cart/index.action';
+                }, 100);
             }
+
+        // buy 1.5 step
+        } else if (hostname === 'giftcard.jd.com' && pathname === '/cart/index.action') {
+            document.querySelector('#gotoacc').click();
 
         // buy second step
         } else if (hostname === 'giftcard.jd.com' && pathname === '/giftcardpurchase/index') {
