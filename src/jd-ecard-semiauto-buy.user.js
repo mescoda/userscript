@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.3
+// @version 0.0.4
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -36,6 +36,8 @@ const PAY_PW = '';
         if (hostname === 'o.jd.com' && pathname === '/index') {
             let buy = w.prompt();
             if (buy) {
+                document.querySelector('#customVal').value = buy;
+                document.querySelector('.e-card-custom .j-buy').click();
                 setTimeout(() => {
                     window.location = 'http://giftcard.jd.com/cart/index.action';
                 }, 100);
