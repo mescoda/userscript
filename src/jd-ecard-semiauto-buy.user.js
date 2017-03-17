@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.5
+// @version 0.0.6
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -111,6 +111,13 @@ const PAY_PW = '';
                 setTimeout(() => {
                     document.querySelector('.btn-red').click();
                 }, 500);
+            }, 500);
+        // new detail: bind ecard
+        } else if (location.hostname === 'giftcard.jd.com' && location.pathname === '/ecardorder/getOrderDetail.action') {
+            document.querySelector('#paypwd').value = PAY_PW;
+            document.querySelector('.getCards').click();
+            setTimeout(() => {
+                document.querySelector('.bindcard').click();
             }, 500);
         }
     };
