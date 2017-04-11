@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.6
+// @version 0.0.7
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -52,11 +52,13 @@ const PAY_PW = '';
             document.querySelector('.checkout-submit').click();
 
         // buy third step
-        } else if (hostname === 'cashier.jd.com' && pathname === '/payment/pay.action') {
-            document.querySelector('.payment .pc-w-left .pl-item').click();
+        } else if (hostname === 'pcashier.jd.com' && pathname === '/cashier/index.action') {
+            setTimeout(() => {
+                document.querySelector('.pc-w-left a').click();
+            }, 200);
 
         // buy result
-        } else if (hostname === 'cashier.jd.com' && pathname === '/payment/payResult.action') {
+        } else if (hostname === 'pcashier.jd.com' && pathname === '/success/payResult.action') {
             window.location = 'http://o.jd.com';
 
         // orderlist
