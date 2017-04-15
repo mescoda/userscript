@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.7
+// @version 0.0.8
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -40,7 +40,7 @@ const PAY_PW = '';
                 document.querySelector('.e-card-custom .j-buy').click();
                 setTimeout(() => {
                     window.location = 'http://giftcard.jd.com/cart/index.action';
-                }, 100);
+                }, 500);
             }
 
         // buy 1.5 step
@@ -120,6 +120,9 @@ const PAY_PW = '';
             document.querySelector('.getCards').click();
             setTimeout(() => {
                 document.querySelector('.bindcard').click();
+                setTimeout(() => {
+                    document.querySelector('#singlebindconfirm').click();
+                }, 500);
             }, 500);
         }
     };
