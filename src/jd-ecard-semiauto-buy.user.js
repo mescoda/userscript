@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.8
+// @version 0.0.9
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -55,7 +55,7 @@ const PAY_PW = '';
         } else if (hostname === 'pcashier.jd.com' && pathname === '/cashier/index.action') {
             setTimeout(() => {
                 document.querySelector('.pc-w-left a').click();
-            }, 200);
+            }, 600);
 
         // buy result
         } else if (hostname === 'pcashier.jd.com' && pathname === '/success/payResult.action') {
