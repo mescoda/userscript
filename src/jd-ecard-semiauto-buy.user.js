@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.9
+// @version 0.0.10
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -116,14 +116,15 @@ const PAY_PW = '';
             }, 500);
         // new detail: bind ecard
         } else if (location.hostname === 'giftcard.jd.com' && location.pathname === '/ecardorder/getOrderDetail.action') {
-            document.querySelector('#paypwd').value = PAY_PW;
-            document.querySelector('.getCards').click();
-            setTimeout(() => {
-                document.querySelector('.bindcard').click();
+            // document.querySelector('#paypwd').value = PAY_PW;
+            // document.querySelector('.getCards').click();
+            // setTimeout(() => {
+                // 发现现在不需要输入密码也能激活
+                document.querySelector('#allbind').click();
                 setTimeout(() => {
-                    document.querySelector('#singlebindconfirm').click();
+                    document.querySelector('#bindconfirm').click();
                 }, 500);
-            }, 500);
+            // }, 500);
         }
     };
 
