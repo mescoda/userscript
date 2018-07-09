@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.11
+// @version 0.0.12
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -33,7 +33,7 @@ const PAY_PW = '';
         let pathname = location.pathname;
 
         // buy first step
-        if (hostname === 'o.jd.com' && pathname === '/index') {
+        if (hostname === 'o.jd.com' && pathname === '/') {
             let buy = w.prompt();
             if (buy) {
                 document.querySelector('#eletricPrice').value = buy;
