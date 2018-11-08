@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name jd-ecard-semiauto-buy
 // @namespace jd-ecard-semiauto-buy
-// @version 0.0.12
+// @version 0.0.13
 // @author mescoda
 // @include *.jd.com/*
 // @grant unsafeWindow
@@ -49,7 +49,7 @@ const PAY_PW = '';
             document.querySelector('#gotoacc').click();
 
         // buy second step
-        } else if (hostname === 'giftcard.jd.com' && pathname === '/giftcardpurchase/index') {
+        } else if (hostname === 'giftcard.jd.com' && pathname === '/giftcardpurchase/indexNew') {
             document.querySelector('.checkout-submit').click();
 
         // buy third step
